@@ -18,6 +18,8 @@ function todoApp(state = initialState, action) {
       //can also enable the object spread operator proposal to write {...state, ...newState} instead
       visibilityFilter: action.filter
     })
+
+    //new `todos` is equal to the old `todos` concatenated
     case ADD_TODO:
     return Object.assign({}, state, {
       todos: [
@@ -31,7 +33,25 @@ function todoApp(state = initialState, action) {
       ]
     })
 
-    
+    case TOGGLE_TODO:
+    // What does the part after `state` mean below?
+    return Object,assign({}, state, {
+      todos: state.todos.map()
+    })
+
+    case TOGGLE_TODO:
+      return Object.assign({}, state, {
+        todos: state.todos.map((todo, index) => {
+          if (index === action.index) {
+            return Object.assign({}, todo, {
+              completed: !todo.completed
+            })
+          }
+          return todo
+        })
+      })
+
+
     default:
     return state
   }
