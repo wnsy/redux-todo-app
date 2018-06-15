@@ -6,6 +6,7 @@ import {
   VisibilityFilters
 } from '../actions'
 
+// eslint-disable-next-line
 const initialState = {
   visibilityFilter: VisibilityFilters.SHOW_ALL,
   todos: []
